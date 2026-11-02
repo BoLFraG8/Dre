@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adreiane Zen Esteban</title>
+  <meta name="description" content="Resume, application letter and resignation letter of Adreiane Zen Esteban.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --text: #f2f2f2;
+      --cyan: #00f0ff;
+      --magenta: #ff2bd6;
+      --yellow: #ffe600;
+      --green: #39ff14;
+      --pixel: "Press Start 2P", "Courier New", monospace;
+      --body: "VT323", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--bg); }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg);
+      /* tiny "stars" */
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 78% 12%, #fff 50%, transparent 51%),
+        radial-gradient(2px 2px at 40% 70%, var(--cyan) 50%, transparent 51%),
+        radial-gradient(1px 1px at 90% 60%, #fff 50%, transparent 51%),
+        radial-gradient(2px 2px at 25% 88%, var(--magenta) 50%, transparent 51%),
+        radial-gradient(1px 1px at 62% 40%, #fff 50%, transparent 51%),
+        radial-gradient(2px 2px at 8% 52%, var(--yellow) 50%, transparent 51%);
+      background-size: 420px 420px;
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    /* faint scanlines */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px);
+      z-index: 50;
+    }
+
+    a { color: inherit; }
+
+    .screen {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 20px 48px;
+      text-align: center;
+    }
+
+    /* ---------- title ---------- */
+    .welcome {
+      margin: 0 0 28px;
+      font-family: var(--pixel);
+      font-size: clamp(1.4rem, 6vw, 2.6rem);
+      color: var(--yellow);
+      text-shadow: 4px 4px 0 var(--magenta);
+      letter-spacing: 0.05em;
+    }
+    .blink { animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .intro {
+      margin: 0 0 14px;
+      font-family: var(--pixel);
+      font-size: clamp(0.7rem, 2.6vw, 1rem);
+      color: var(--cyan);
+    }
+
+    h1 {
+      margin: 0 0 48px;
+      font-family: var(--pixel);
+      font-weight: normal;
+      font-size: clamp(1rem, 4.6vw, 2rem);
+      line-height: 1.6;
+      color: var(--green);
+      text-shadow: 3px 3px 0 #0a5c00;
+    }
+
+    /* ---------- menu ---------- */
+    .menu-label {
+      margin: 0 0 18px;
+      font-family: var(--pixel);
+      font-size: 0.65rem;
+      color: #888;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 56px;
+    }
+
+    .btn {
+      --c: var(--cyan);
+      position: relative;
+      width: min(100%, 340px);
+      padding: 18px 20px;
+      font-family: var(--pixel);
+      font-size: 0.85rem;
+      color: var(--c);
+      background: #000;
+      border: 4px solid var(--c);
+      box-shadow: 6px 6px 0 var(--c);
+      cursor: pointer;
+      transition: transform 0.08s, box-shadow 0.08s;
+    }
+    .btn.resume      { --c: var(--cyan); }
+    .btn.application { --c: var(--magenta); }
+    .btn.resignation { --c: var(--yellow); }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: var(--c);
+      color: #000;
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--c);
+      outline: none;
+    }
+    .btn:hover::before,
+    .btn:focus-visible::before {
+      content: "\25B6";
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+    }
+    .btn:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--c); }
+
+    /* ---------- contact ---------- */
+    .contact {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 20px 22px 22px;
+      text-align: left;
+      border: 4px solid var(--green);
+      box-shadow: 6px 6px 0 #0a5c00;
+      background: #000;
+    }
+    .contact h2 {
+      margin: 0 0 16px;
+      font-family: var(--pixel);
+      font-weight: normal;
+      font-size: 0.75rem;
+      color: var(--green);
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      align-items: baseline;
+      margin: 0 0 10px;
+    }
+    .row:last-child { margin-bottom: 0; }
+    .row .k {
+      min-width: 70px;
+      font-family: var(--pixel);
+      font-size: 0.65rem;
+      color: var(--yellow);
+    }
+    .row .v {
+      font-size: 1.8rem;
+      color: var(--text);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .row a.v:hover { background: var(--green); color: #000; }
+
+    .hint {
+      margin: 34px 0 0;
+      font-size: 1.1rem;
+      color: #777;
+    }
+
+    /* ---------- document windows ---------- */
+    dialog {
+      --c: var(--cyan);
+      width: min(92vw, 720px);
+      max-height: 88vh;
+      padding: 0;
+      border: 4px solid var(--c);
+      background: #000;
+      color: var(--text);
+      box-shadow: 8px 8px 0 var(--c);
+      overflow: hidden;
+    }
+    dialog#d-resume      { --c: var(--cyan); }
+    dialog#d-application { --c: var(--magenta); }
+    dialog#d-resignation { --c: var(--yellow); }
+
+    dialog::backdrop { background: rgba(0, 0, 0, 0.85); }
+
+    .win {
+      display: flex;
+      flex-direction: column;
+      max-height: 88vh;
+    }
+    .win-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--c);
+      color: #000;
+      font-family: var(--pixel);
+      font-size: 0.65rem;
+    }
+    .win-bar .close {
+      font-family: var(--pixel);
+      font-size: 0.65rem;
+      color: var(--c);
+      background: #000;
+      border: 2px solid #000;
+      padding: 6px 8px;
+      cursor: pointer;
+    }
+    .win-bar .close:hover,
+    .win-bar .close:focus-visible { background: #fff; color: #000; outline: none; }
+
+    .win-body {
+      overflow-y: auto;
+      padding: 22px 22px 8px;
+    }
+    .win-body p { margin: 0 0 16px; font-size: 1.5rem; line-height: 1.3; }
+    .win-body .name { color: var(--c); font-size: 1.9rem; margin-bottom: 4px; }
+    .win-body .tight { margin-bottom: 2px; }
+    .win-body h3 {
+      margin: 26px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 3px dotted var(--c);
+      font-family: var(--pixel);
+      font-weight: normal;
+      font-size: 0.7rem;
+      color: var(--c);
+    }
+    .win-body .role { color: var(--yellow); margin-bottom: 0; }
+    .win-body .place { color: var(--cyan); margin-bottom: 8px; }
+    .win-body ul { margin: 0 0 16px; padding-left: 0; list-style: none; }
+    .win-body li { margin-bottom: 4px; font-size: 1.5rem; }
+    .win-body li::before { content: "\2605 "; color: var(--c); }
+
+    .win-foot {
+      padding: 12px 22px 18px;
+      font-family: var(--pixel);
+      font-size: 0.6rem;
+    }
+    .win-foot a {
+      display: inline-block;
+      padding: 10px 12px;
+      color: var(--c);
+      border: 3px solid var(--c);
+      text-decoration: none;
+    }
+    .win-foot a:hover,
+    .win-foot a:focus-visible { background: var(--c); color: #000; outline: none; }
+
+    @media (max-width: 480px) {
+      .screen { padding-top: 40px; }
+      .win-body { padding: 16px 14px 4px; }
+      .win-foot { padding: 10px 14px 16px; }
+      .row .v { font-size: 1.35rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blink { animation: none; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="screen">
+    <p class="welcome">WELCOME<span class="blink">_</span></p>
+    <p class="intro">MY NAME IS</p>
+    <h1>ADREIANE ZEN ESTEBAN</h1>
+
+    <p class="menu-label">&mdash; SELECT A FILE &mdash;</p>
+    <nav class="menu" aria-label="Documents">
+      <button class="btn resume"      data-open="d-resume">[ RESUME ]</button>
+      <button class="btn application" data-open="d-application">[ APPLICATION ]</button>
+      <button class="btn resignation" data-open="d-resignation">[ RESIGNATION ]</button>
+    </nav>
+
+    <section class="contact" aria-label="Contact">
+      <h2>&#9733; CONTACT</h2>
+      <p class="row"><span class="k">PHONE</span> <a class="v" href="tel:+639466499378">09466499378</a></p>
+      <p class="row"><span class="k">EMAIL</span> <a class="v" href="mailto:adrezen08@gmail.com">adrezen08@gmail.com</a></p>
+    </section>
+
+    <p class="hint">Tip: press 1, 2 or 3 on your keyboard</p>
+  </main>
+
+  <!-- 1. RESUME -->
+  <dialog id="d-resume" aria-labelledby="t-resume">
+    <div class="win">
+      <div class="win-bar">
+        <span id="t-resume">FILE 1: RESUME</span>
+        <button class="close" data-close aria-label="Close">X</button>
+      </div>
+      <div class="win-body">
+        <p class="name">Adreiane Zen Esteban</p>
+        <p>adrezen08@gmail.com | 09466499378 | Barangay San Jose, Maria Auroa, Aurora</p>
+
+        <h3>SUMMARY</h3>
+        <p>Student with practical On the Job Training (OJT) experience in local government administration. Skilled in front-desk operations, visitor management, and public document processing, including Barangay Clearances. Proven ability to handle inquiries efficiently and maintain accurate data entry in environment.</p>
+
+        <h3>WORK EXPERIENCE</h3>
+        <p class="role tight">Barangay Desk Clerk / Office Intern</p>
+        <p class="place">Barangay Office</p>
+        <p>Managed document processing for community members, including Barangay Clearances, Certificates of Indigency, and residency permits. Assessed and verified resident information to ensure accuracy before issuing official barangay documents.</p>
+
+        <h3>EDUCATION</h3>
+        <p class="role tight">Computer Science, Bachelor of Science</p>
+        <p class="place">Wesleyan University - Philippines (Aurora)</p>
+        <p>Wesleyan University - Philippines (Aurora), 1st Year student of Bachelor of Science in Computer Science</p>
+
+        <h3>SKILLS</h3>
+        <ul>
+          <li>Document Processing</li>
+          <li>Data Entry &amp; Accuracy</li>
+          <li>Customer Service / Public Relations</li>
+        </ul>
+      </div>
+      <div class="win-foot"><a href="files/H01-Resume_ESTEBAN.docx" download>&#9660; DOWNLOAD .DOCX</a></div>
+    </div>
+  </dialog>
+
+  <!-- 2. APPLICATION LETTER -->
+  <dialog id="d-application" aria-labelledby="t-application">
+    <div class="win">
+      <div class="win-bar">
+        <span id="t-application">FILE 2: APPLICATION LETTER</span>
+        <button class="close" data-close aria-label="Close">X</button>
+      </div>
+      <div class="win-body">
+        <p class="name">Adreiane Zen Esteban</p>
+        <p class="tight">Barangay San Jose, Maria Aurora, Aurora</p>
+        <p>adrezen08@gmail.com | 09466499378</p>
+
+        <p>September 1, 2026</p>
+
+        <p class="tight">Hiring Manager: Marlon Sumait</p>
+        <p>WUP Technology</p>
+
+        <p>Dear Mr. Sumait,</p>
+
+        <p>I am writing to express my strong interest in joining WUP Technology. With a solid background in customer service, I have built a reputation for being reliable, personable, and dedicated to helping others, qualities I believe would make me a valuable addition to your team.</p>
+
+        <p>Over the course of my experience, I have developed strong skills in communication, problem-solving, and relationship-building with customers. I take pride in resolving concerns efficiently while maintaining a positive and professional attitude, even in fast-paced or challenging situations. I am also a fast learner who adapts quickly to new systems, tools, and environments, which I believe will serve me well within the tech industry.</p>
+
+        <p>What draws me to WUP Technology in particular is its strong reputation for innovation and its commitment to growth within the tech sector. I am eager to bring my customer service expertise to a company that values progress and excellence, and I am confident that my skills align well with the goals of your team.</p>
+
+        <p>I would welcome the opportunity to discuss any current or upcoming openings that match my background and experience. I am happy to provide my resume or any additional information you may require, and I am available at your convenience for an interview.</p>
+
+        <p>Thank you very much for taking the time to consider my application. I look forward to the possibility of speaking with you further.</p>
+
+        <p>Sincerely,<br><span style="color: var(--magenta)">Adreiane Zen Esteban</span></p>
+      </div>
+      <div class="win-foot"><a href="files/H02-Application_Letter_ESTEBAN.docx" download>&#9660; DOWNLOAD .DOCX</a></div>
+    </div>
+  </dialog>
+
+  <!-- 3. RESIGNATION LETTER -->
+  <dialog id="d-resignation" aria-labelledby="t-resignation">
+    <div class="win">
+      <div class="win-bar">
+        <span id="t-resignation">FILE 3: RESIGNATION LETTER</span>
+        <button class="close" data-close aria-label="Close">X</button>
+      </div>
+      <div class="win-body">
+        <p class="name">Adreiane Zen Esteban</p>
+        <p class="tight">Barangay San Jose, Maria Aurora, Aurora</p>
+        <p>adrezen08@gmail.com | 09466499378</p>
+
+        <p>Date: September 8 2026</p>
+
+        <p class="tight">Hiring Manager: Marlon Sumait</p>
+        <p>WUP Technology</p>
+
+        <p>Dear Mr. Sumait,</p>
+
+        <p>I am writing to formally notify you of my resignation from my position at WUP Technology. This decision was not made lightly, and I want to thank you for the opportunities for growth and development I have had during my time here.</p>
+
+        <p>I am committed to ensuring a smooth transition and am happy to assist in training a replacement or wrapping up my current responsibilities during my remaining time with the company. Please let me know how I can be most helpful in the coming weeks.</p>
+
+        <p>I am grateful for the support, guidance, and experiences I have gained while working. It has been a pleasure to be part of WUP Technology, and I look forward to staying in touch.</p>
+
+        <p>Thank you again for the opportunity. Please do not hesitate to contact me if there is anything further you need from me during this transition.</p>
+
+        <p>Sincerely,<br><span style="color: var(--yellow)">Adreiane Zen Esteban</span></p>
+      </div>
+      <div class="win-foot"><a href="files/H03-Resignation_Letter_ESTEBAN.docx" download>&#9660; DOWNLOAD .DOCX</a></div>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      var ids = ["d-resume", "d-application", "d-resignation"];
+
+      function open(id) {
+        var d = document.getElementById(id);
+        if (d && !d.open) {
+          if (d.showModal) { d.showModal(); } else { d.setAttribute("open", ""); }
+          var body = d.querySelector(".win-body");
+          if (body) { body.scrollTop = 0; }
+        }
+      }
+      function closeAll() {
+        ids.forEach(function (id) {
+          var d = document.getElementById(id);
+          if (d && d.open) { d.close ? d.close() : d.removeAttribute("open"); }
+        });
+      }
+
+      document.querySelectorAll("[data-open]").forEach(function (b) {
+        b.addEventListener("click", function () { open(b.getAttribute("data-open")); });
+      });
+      document.querySelectorAll("[data-close]").forEach(function (b) {
+        b.addEventListener("click", closeAll);
+      });
+
+      // click outside the window closes it
+      ids.forEach(function (id) {
+        var d = document.getElementById(id);
+        d.addEventListener("click", function (e) { if (e.target === d) { closeAll(); } });
+      });
+
+      // keyboard shortcuts 1 / 2 / 3
+      document.addEventListener("keydown", function (e) {
+        if (e.ctrlKey || e.metaKey || e.altKey) { return; }
+        var i = ["1", "2", "3"].indexOf(e.key);
+        if (i > -1) { closeAll(); open(ids[i]); }
+      });
+    })();
+  </script>
+</body>
+</html>
